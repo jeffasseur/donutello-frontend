@@ -1,5 +1,12 @@
-@import './colors';
+@import './project/colors';
+@import './project/typo';
 
 h1 {
+    font-family: 'Dosis bold', sans-serif;
     color: $strawberry;
+}
+
+p {
+    font-family: 'Lato', sans-serif;
+    color: $black;
 }
