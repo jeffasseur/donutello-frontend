@@ -11,5 +11,8 @@
 </template>
 
 <style lang="scss">
-  @import './src/sass/app.scss';
+@import './sass/app.scss';
+  h1 {
+    color: $strawberry;
+  }
 </style>
