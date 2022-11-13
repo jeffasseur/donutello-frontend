@@ -12,7 +12,4 @@
 
 <style lang="scss">
 @import './sass/app.scss';
-  h1 {
-    color: $strawberry;
-  }
 </style>
