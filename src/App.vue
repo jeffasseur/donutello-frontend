@@ -1,15 +1,13 @@
 <script setup>
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
+import Home from './views/Home.vue'
+import Donut from './components/Donuts.vue'
 </script>
 
 <template>
-  <div>
-    <h1>Donutello</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur excepturi molestias placeat reprehenderit, maiores sunt unde, omnis mollitia nobis ipsum corrupti recusandae magnam, possimus provident! Libero consequuntur tempora recusandae voluptatem?</p>
-  </div>
+  <Home />
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import './sass/app.scss';
+
 </style>
