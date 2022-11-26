@@ -1,0 +1,16 @@
+.btn {
+    padding: 1em 2em;
+    border-radius: 3em;
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+
+.btn--strawberry {
+    background-color: $strawberry;
+    color: $lemon;
+}
+
+.btn--lemon {
+    background-color: $lemon;
+    color: $strawberry;
+}
