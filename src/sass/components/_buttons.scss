@@ -7,14 +7,29 @@
     font-size: 1rem;
     font-weight: 600;
     line-height: 1.5em;
+    transition: all .3s ease-in-out;
 }
 
 .btn--strawberry {
     background-color: $strawberry;
     color: $lemon;
+    transition: all .3s ease-in-out;
+}
+
+.btn--strawberry:hover {
+    background-color: $pink;
 }
 
 .btn--lemon {
     background-color: $lemon;
     color: $strawberry;
+    transition: all .3s ease-in-out;
+}
+
+.btn--lemon {
+    background-color: $warmLemon;
+}
+
+button:hover {
+    border-color: transparent;
 }
