@@ -1,10 +1,10 @@
 <script setup>
 import Home from './views/Home.vue'
-import Donut from './components/Donuts.vue'
+import Login from './views/Login.vue'
 </script>
 
 <template>
-  <Home />
+  <router-view />
 </template>
 
 <style lang="scss" scoped>
