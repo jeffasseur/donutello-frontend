@@ -1,5 +1,6 @@
 <script setup>
 import Nav from './../components/Navigation.vue'
+import Button from './../components/Button.vue'
 </script>
 
 <template>
@@ -16,7 +17,7 @@ import Nav from './../components/Navigation.vue'
                 <a href="#" class="password__forgot">Wachtwoord vergeten?</a>
             </div>
             <div class="form-group">
-                <button class="btn btn--strawberry" type="submit">Login</button>
+                <Button text="Inloggen" class="btn btn--strawberry" type="submit"/>
             </div>
         </form>
     </div>
@@ -42,21 +43,21 @@ form {
 .form-group label {
     display: inline-flex;
     width: fit-content;
-    padding: .2em .6em;
-    background-color: $lemon;
-    color: $strawberry;
-    border-radius: 50px;
 }
 .form-group input {
-    font-size: 16px;
+    font-size: 1em;
     padding: .5em;
-    border: 1px solid $strawberry;
-    border-radius: 5px;
-    transition: all .3s ease-in-out;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid $strawberry;
+    border-radius: 0 !important;
+    transition: all .1s ease-in;
 }
 .form-group input:focus {
-    outline: 2px solid $lemon;
-    border: $lemon;
+    outline: none;
+    border-top: 2px solid $strawberry;
+    border-left: 2px solid $strawberry;
+    border-right: 2px solid $strawberry;
 }
 .form-group button:hover {
     outline: none;
