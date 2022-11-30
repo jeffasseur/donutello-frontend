@@ -1,32 +1,34 @@
+$Dosis-font-path: './../assets/font/Dosis/static';
+$Lato-font-path: './../assets/font/Lato/static';
 // importing Dosis font
 @font-face {
     font-family: 'Dosis';
-    src: url(./../../assets/font/Dosis/static/Dosis-ExtraBold.ttf) format('truetype');
+    src: url("#{$Dosis-font-path}/Dosis-ExtraBold.ttf") format('truetype');
     font-weight: 800;
 }
 @font-face {
     font-family: 'Dosis';
-    src: url(./../../assets/font/Dosis/static/Dosis-Bold.ttf) format('truetype');
+    src: url("#{$Dosis-font-path}/Dosis-Bold.ttf") format('truetype');
     font-weight: 700;
 }
 @font-face {
     font-family: 'Dosis';
-    src: url(./../../assets/font/Dosis/static/Dosis-SemiBold.ttf) format('truetype');
+    src: url('#{$Dosis-font-path}/Dosis-SemiBold.ttf') format('truetype');
     font-weight: 600;
 }
 @font-face {
     font-family: 'Dosis';
-    src: url(./../../assets/font/Dosis/static/Dosis-Medium.ttf) format('truetype');
+    src: url('#{$Dosis-font-path}/Dosis-Medium.ttf') format('truetype');
     font-weight: 500;
 }
 @font-face {
     font-family: 'Dosis';
-    src: url(./../../assets/font/Dosis/static/Dosis-Regular.ttf) format('truetype');
+    src: url('#{$Dosis-font-path}/Dosis-Regular.ttf') format('truetype');
     font-weight: normal;
 }
 @font-face {
     font-family: 'Dosis';
-    src: url(./../../assets/font/Dosis/static/Dosis-Light.ttf) format('truetype');
+    src: url('#{$Dosis-font-path}/Dosis-Light.ttf') format('truetype');
     font-weight: 300;
 }
 
@@ -34,25 +36,25 @@
 // importing Lato font
 @font-face {
     font-family: 'Lato';
-    src: url(./../../assets/font/Lato/Lato-Black.ttf);
+    src: url('#{$Lato-font-path}/Lato-Black.ttf') format('truetype');
     font-weight: 900;
 }
 @font-face {
     font-family: 'Lato';
-    src: url(./../../assets/font/Lato/Lato-Bold.ttf);
+    src: url('#{$Lato-font-path}/Lato-Bold.ttf') format('truetype');
     font-weight: 700;
 }
 @font-face {
     font-family: 'Lato';
-    src: url(./../../assets/font/Lato/Lato-Regular.ttf);
+    src: url('#{$Lato-font-path}/Lato/Lato-Regular.ttf') format('truetype');
     font-weight: normal;
 }
 @font-face {
     font-family: 'Lato';
-    src: url(./../../assets/font/Lato/Lato-Light.ttf);
+    src: url('./../../assets/font/Lato/Lato-Light.ttf') format('truetype');
     font-weight: 300;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: "Dosis", Tahoma, sans-serif;
+body, h1, h2, h3, h4, h5, h6, p {
+    font-family: "Dosis", sans-serif;
 }
