@@ -1,6 +1,47 @@
 <script setup>
+import { ref } from 'vue'
 import Nav from './../components/Navigation.vue'
 import Button from './../components/Button.vue'
+
+const email = ref('')
+const password = ref('')
+
+const login = (e) => {
+    if (!email.value) {
+        alert('Please enter your email')
+        return
+    }
+    if (!password.value) {
+        alert('Please enter your password')
+        return
+    }
+    // Send login request to server
+    fetch('http://localhost:3000/api/v1/users/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            email: email.value,
+            password: password.value
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.status === 'success') {
+                console.log(data.status)
+                // Store token in local storage
+                localStorage.setItem('token', data.token)
+                // Redirect to dashboard
+                window.location.href = '/dashboard'
+            } else {
+                error.value = data.message
+                console.log(error)
+                return error
+            }
+        })
+    })
+}
+
 </script>
 
 <template>
@@ -17,7 +58,7 @@ import Button from './../components/Button.vue'
                 <a href="#" class="password__forgot">Wachtwoord vergeten?</a>
             </div>
             <div class="form-group">
-                <Button text="Inloggen" class="btn btn--strawberry" type="submit"/>
+                <Button text="Inloggen" class="btn btn--strawberry" type="submit" />
             </div>
         </form>
     </div>
@@ -27,7 +68,7 @@ import Button from './../components/Button.vue'
 @import './../sass/app.scss';
 
 .login {
-    padding: 0 3rem;;
+    padding: 0 3rem;
 }
 form {
     display: flex;
