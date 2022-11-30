@@ -1,7 +1,9 @@
 <template>
     <nav>
         <div class="nav__logo">
-            <img src="/images/donuttello-logo.webp" alt="Logo Donuttello">
+            <a href="/">
+                <img src="/images/donuttello-logo.webp" alt="Logo Donuttello">
+            </a>
         </div>
         <a class="nav__login" href="/login">
             <img src="/images/account.svg" alt="Account icon">
