@@ -70,4 +70,11 @@ form {
 .password__forgot:hover {
     color: $strawberry;
 }
+
+@media screen and (min-width: 1200px) {
+    .login {
+        padding-left: 6rem;
+        padding-right: 6rem;
+    }
+}
 </style>

@@ -106,4 +106,22 @@ li {
 .clients__carousel img:last-child {
     margin-right: 3rem;
 }
+
+@media screen and (min-width: 768px) {
+    .header__title {
+        font-size: 5rem;
+    }
+    .header__p {
+        font-size: 1.5rem;
+    }
+    .stappenplan h2, .clients h2 {
+        font-size: 3rem;
+    }
+    .stappenplan ol li {
+        font-size: 1.5rem;
+    }
+    .clients__carousel img {
+        width: 6rem;
+    }
+}
 </style>
