@@ -34,4 +34,15 @@ nav {
     display: inline-flex;
     padding: 1.5rem;
 }
+
+@media screen and (min-width: 1200px) {
+    nav {
+        padding-left: 6rem;
+        padding-right: 6rem;
+        width: calc(100vw - 12rem);
+    }
+    .nav__logo {
+        left: 6rem;
+    }
+}
 </style>

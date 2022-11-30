@@ -124,4 +124,34 @@ li {
         width: 6rem;
     }
 }
+
+@media screen and (min-width: 1200px) {
+    header {
+        padding-left: 6rem;
+        padding-right: 6rem;
+        background: linear-gradient(180deg, rgba(231,44,112,0.5) 0%, rgba(130,209,228,0.65) 100%), url('/images/donutello-bg-desktop.webp') center top;
+        background-size: cover;
+    }
+    section {
+        padding: 4rem 6rem;
+    }
+    .clients {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .clients__carousel {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem 4rem;
+        overflow-x: hidden;
+        margin-right: 0;
+    }
+    .clients__carousel img {
+        width: 6rem;
+    }
+    .clients__carousel img:last-child {
+        margin-right: 0;
+    }
+}
 </style>
