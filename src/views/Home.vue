@@ -84,6 +84,7 @@ ol {
 li {
     font-weight: 600;
     text-transform: uppercase;
+    margin-bottom: .5em;
 }
 .clients {
     background: $strawberry;
@@ -139,6 +140,12 @@ li {
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+    ol {
+        margin: 0 auto;
+    }
+    li {
+        margin-bottom: 1em;
     }
     .clients__carousel {
         display: grid;
