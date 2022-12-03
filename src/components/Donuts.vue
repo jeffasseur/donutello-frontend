@@ -1,45 +1,51 @@
 <script setup>
-    import { onMounted } from 'vue'
-    import * as Three from 'three'
-    import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
+    import { reactive, onMounted } from 'vue'
+    
+    let donuts = reactive( {donuts: []} )
 
-
-    onMounted( () => {
-        let container = document.querySelector('.three-donut');
-
-        const camera = new Three.PerspectiveCamera(70, container.innerWidth/container.innerHeight, 0.01, 10);
-        camera.position.z = 1;
-
-        const scene = new Three.Scene();
-
-        let light = new Three.AmbientLight(0xffffff, 0.8);
-        scene.add(light);
-
-        // const donutLoader = new GLTFLoader();
-        // donutLoader.load('/assets/donut.glb', (donut) => {
-        //     scene.add(donut.scene);
-        // });
-
-        const renderer = new Three.WebGLRenderer();
-        renderer.setSize(container.innerWidth, container.innerHeight);
-        container.appendChild(renderer.domElement);        
+    onMounted ( () => {
+        let donutUrl = 'http://localhost:3000/api/v1/donuts'
+        fetch( donutUrl )
+        .then( res => res.json() )
+        .then ( data => {
+            console.log(data)
+            donuts.donuts = data.data
+        })
     })
 
 </script>
 
 <template>
-  <div class="three-donut"></div>
+    <div class="donuts">
+        <div class="donut card" v-for="donut in donuts.donuts" :key="donut._id">
+            <div class="card__color">
+                <img class="card__color__logo" v-if="(donut.logo != null)" :src="donut.logo" alt="Logo">
+            </div>
+            <p>{{ donut._id }}</p>
+            <p>{{ donut.name }}</p>
+            <p v-if="donut.order">{{ donut.amount }}</p>
+        </div>
+    </div>
 </template>
 
+<style lang="scss" scoped>
+@import './../sass/app.scss';
 
-<style scoped>
-.three-donut {
-    width: 80vw !important;
-    height: 80vh !important;
+.donuts {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
 }
 
-.three-donut canvas {
-    width: 100% !important;
-    height: 100% !important;
+@media screen and (min-width: 768px) {
+    .donuts {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .donuts {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
 </style>
