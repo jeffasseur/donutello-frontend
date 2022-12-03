@@ -1,5 +1,6 @@
-$Dosis-font-path: './../assets/font/Dosis/static';
-$Lato-font-path: './../assets/font/Lato/static';
+$Dosis-font-path: './../../src/assets/font/Dosis/static';
+$Lato-font-path: './../../src/assets/font/Lato/static';
+
 // importing Dosis font
 @font-face {
     font-family: 'Dosis';
