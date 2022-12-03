@@ -16,15 +16,15 @@
 </script>
 
 <template>
+    <h2>Custom donuts</h2>
     <div class="donuts">
-        <div class="donut card" v-for="donut in donuts.donuts" :key="donut._id">
+        <a class="donut card" v-for="donut in donuts.donuts" :key="donut._id" :href="('/dashboard?donut=' + donut._id)" >
             <div class="card__color">
                 <img class="card__color__logo" v-if="(donut.logo != null)" :src="donut.logo" alt="Logo">
             </div>
-            <p>{{ donut._id }}</p>
             <p>{{ donut.name }}</p>
-            <p v-if="donut.order">{{ donut.amount }}</p>
-        </div>
+            <p v-if="donut.order">Aantal: <strong>{{ donut.amount }}</strong></p>
+        </a>
     </div>
 </template>
 
@@ -33,8 +33,14 @@
 
 .donuts {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     gap: 1.25rem;
+}
+
+@media screen and (min-width: 500px) {
+    .donuts {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 @media screen and (min-width: 768px) {
