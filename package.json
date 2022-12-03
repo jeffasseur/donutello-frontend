@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "material-icons": "^1.13.1",
     "three": "^0.146.0",
     "vue": "^3.2.41",
     "vue-router": "^4.1.6"
