@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import Login from './../views/Login.vue'
 import Dashboard from './../views/Dashboard.vue'
-import ForgotPassword from './../views/ForgotPassword.vue'
+import ChangePassword from '../views/ChangePassword.vue'
 
 const routes = [
   {
@@ -21,9 +21,9 @@ const routes = [
     component: Dashboard
   },
   {
-    path: '/login/forgot-password',
-    name: 'ForgotPassword',
-    component: ForgotPassword
+    path: '/login/change-password',
+    name: 'ChangePassword',
+    component: ChangePassword
   }
 ]
 

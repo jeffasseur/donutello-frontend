@@ -68,9 +68,8 @@
 }
 .material-icons-round {
     cursor: pointer;
-}
-.material-icons-round:hover, .material-icons-round:focus {
     color: $lemon;
+    transition: all .3s ease-in-out;
 }
 .icon--close {
     display: none;

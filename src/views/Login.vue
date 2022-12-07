@@ -55,7 +55,7 @@
             <div class="form-group">
                 <label for="password">Password</label>
                 <input type="password" name="password" id="password" v-model="password" />
-                <a href="login/forgot-password" class="password__forgot">Wachtwoord vergeten?</a>
+                <a href="login/change-password" class="password__forgot">Wachtwoord vergeten?</a>
             </div>
             <div class="login__error alert alert--danger" v-if="error">
                 <span class="login__error__icon material-icons-outlined">error_outline</span>
