@@ -3,26 +3,28 @@
     import Nav from '../components/Navigation.vue'
     import Button from '../components/Button.vue'
 
+    const username = ref('')
     const oldPassword = ref('')
     const newPassword = ref('')
     const repeatNewPassword = ref('')
     let error = ref(false)
 
     const changePassword = (e) => {
-        if (!email.value) {
-            error.value = 'Please enter your email'
+        if (!username.value) {
+            error.value = 'Vul je gebruikersnaam in'
             return error
         }
         // Send login request to server
-        fetch('http://localhost:3000/users/login/changePassword', {
-            method: 'POST',
+        fetch('https://donutello-backend-n95w.onrender.com/users/login/changePassword', {
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                "oldPassword": oldPassword.value,
-                "newPassword": newPassword.value,
-                "repeatNewPassword": repeatNewPassword.value
+                "username": username.value,
+                "passwordOld": oldPassword.value,
+                "passwordNew1": newPassword.value,
+                "passwordNew2": repeatNewPassword.value
             })
         })
             .then(res => res.json())
@@ -46,6 +48,10 @@
     <Nav />
     <div class="change-password">
         <form name="form-password" @submit.prevent="changePassword">
+            <div class="form-group">
+                <label for="username">Gebruikersnaam</label>
+                <input type="text" name="username" id="username" v-model="username" />
+            </div>
             <div class="form-group">
                 <label for="password">Oud wachtwoord</label>
                 <input type="password" name="Oldpassword" id="oldPassword" v-model="oldPassword" />

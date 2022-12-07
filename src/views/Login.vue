@@ -17,13 +17,13 @@
             return error
         }
         // Send login request to server
-        fetch('http://localhost:3000/users/login', {
+        fetch('https://donutello-backend-n95w.onrender.com/users/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                "email": email.value,
+                "username": email.value,
                 "password": password.value
             })
         })
@@ -50,7 +50,7 @@
         <form name="form-login" @submit.prevent="login">
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" name="email" id="email" v-model="email" />
+                <input type="text" name="email" id="email" v-model="email" />
             </div>
             <div class="form-group">
                 <label for="password">Wachtwoord</label>

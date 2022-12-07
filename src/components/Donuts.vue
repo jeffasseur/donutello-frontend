@@ -4,8 +4,13 @@
     let donuts = reactive( {donuts: []} )
 
     onMounted ( () => {
-        let donutUrl = 'http://localhost:3000/api/v1/donuts'
-        fetch( donutUrl )
+        let donutUrl = 'https://donutello-backend-n95w.onrender.com/api/v1/donuts'
+        fetch( donutUrl, {
+            method: 'GET',
+            headers: {
+                "Authorization": "Bearer " + localStorage.getItem('token'),
+            }
+        } )
         .then( res => res.json() )
         .then ( data => {
             console.log(data)
@@ -16,14 +21,16 @@
 </script>
 
 <template>
-    <h2>Custom donuts</h2>
+    <h2>Donut bestellingen</h2>
     <div class="donuts">
         <a class="donut card" v-for="donut in donuts.donuts" :key="donut._id" :href="('/dashboard?donut=' + donut._id)" >
             <div class="card__color">
                 <img class="card__color__logo" v-if="(donut.logo != null)" :src="donut.logo" alt="Logo">
             </div>
-            <p>{{ donut.name }}</p>
+            <h3>{{ donut.name }}</h3>
             <p v-if="donut.order">Aantal: <strong>{{ donut.amount }}</strong></p>
+            <p v-if="donut.order">Status: <strong>{{ donut.status }}</strong></p>
+            <p v-if="!donut.order">Aantal: <strong>Geen bestelling</strong></p>
         </a>
     </div>
 </template>

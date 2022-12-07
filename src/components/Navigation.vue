@@ -103,6 +103,9 @@ nav {
     text-transform: uppercase;
     transition: all .3s ease-in-out;
 }
+.nav__menu a:hover {
+    color: $lemon;
+}
 .nav__hamburger {
     width: 1.5rem;
     aspect-ratio: 2/1;
