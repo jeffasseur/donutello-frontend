@@ -8,7 +8,7 @@
     const repeatNewPassword = ref('')
     let error = ref(false)
 
-    const forgotPassword = (e) => {
+    const changePassword = (e) => {
         if (!email.value) {
             error.value = 'Please enter your email'
             return error
@@ -44,8 +44,8 @@
 
 <template>
     <Nav />
-    <div class="forgot-password">
-        <form name="form-password" @submit.prevent="forgotPassword">
+    <div class="change-password">
+        <form name="form-password" @submit.prevent="changePassword">
             <div class="form-group">
                 <label for="password">Oud wachtwoord</label>
                 <input type="password" name="Oldpassword" id="oldPassword" v-model="oldPassword" />
@@ -72,7 +72,7 @@
 <style lang="scss" scoped>
 @import './../sass/app.scss';
 
-.forgot-password {
+.change-password {
     padding: 0 3rem;
 }
 form {
@@ -110,7 +110,7 @@ form {
 }
 
 @media screen and (min-width: 768px) {
-    .forgot-password {
+    .change-password {
         padding-left: 25%;
         padding-right: 25%;
     }

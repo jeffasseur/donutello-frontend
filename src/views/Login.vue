@@ -53,9 +53,9 @@
                 <input type="email" name="email" id="email" v-model="email" />
             </div>
             <div class="form-group">
-                <label for="password">Password</label>
+                <label for="password">Wachtwoord</label>
                 <input type="password" name="password" id="password" v-model="password" />
-                <a href="login/change-password" class="password__forgot">Wachtwoord vergeten?</a>
+                <a href="login/change-password" class="password__forgot">Wachtwoord veranderen</a>
             </div>
             <div class="login__error alert alert--danger" v-if="error">
                 <span class="login__error__icon material-icons-outlined">error_outline</span>
