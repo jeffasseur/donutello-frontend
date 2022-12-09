@@ -3,6 +3,7 @@ import Home from '../views/Home.vue'
 import Login from './../views/Login.vue'
 import Dashboard from './../views/Dashboard.vue'
 import ChangePassword from '../views/ChangePassword.vue'
+import Donut from '../views/DonutDetail.vue'
 
 const routes = [
   {
@@ -24,6 +25,11 @@ const routes = [
     path: '/login/change-password',
     name: 'ChangePassword',
     component: ChangePassword
+  },
+  {
+    path: '/dashboard/donut/id/:id',
+    name: 'Donut',
+    component: Donut
   }
 ]
 

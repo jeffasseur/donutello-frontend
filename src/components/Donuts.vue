@@ -24,7 +24,7 @@
 <template>
     <h2>Donut bestellingen</h2>
     <div class="donuts">
-        <a class="donut card" v-for="donut in donuts.donuts" :key="donut._id" :href="('/dashboard?donut=' + donut._id)" >
+        <a class="donut card" v-for="donut in donuts.donuts" :key="donut._id" :href="('/dashboard/donut/id/' + donut._id)" >
             <div class="card__color">
                 <img class="card__color__logo" v-if="(donut.logo != null)" :src="donut.logo" alt="Logo">
             </div>
