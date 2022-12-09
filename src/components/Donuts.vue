@@ -16,7 +16,9 @@
             console.log(data)
             donuts.donuts = data.data
         })
-        .catch( window.location.href = '/login')
+        .catch( err => {
+            window.location.href = '/login'
+        } )
     })
 
 </script>

@@ -1,6 +1,6 @@
 <script setup>
     const openMenu = () => {
-        document.querySelector('.nav--mobile').style = 'top: 5rem';
+        document.querySelector('.nav--mobile').style = 'top: 4.85rem';
         // make cross from hamburger
         document.querySelector('.icon--menu').style = 'display: none';
         document.querySelector('.icon--close').style = 'display: block';
@@ -78,7 +78,7 @@
 
 nav {
     background: $strawberry;
-    border-bottom: 10px solid $white;
+    // border-bottom: 10px solid $white;
     padding: .5rem 3rem;
     position: absolute;
     top: 0;

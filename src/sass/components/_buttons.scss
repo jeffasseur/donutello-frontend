@@ -12,6 +12,11 @@
     width: max-content;
 }
 
+.btn--small {
+    font-size: .8rem;
+    padding: .8em 1.5em;
+}
+
 .btn--strawberry {
     background-color: $strawberry;
     color: $lemon;
