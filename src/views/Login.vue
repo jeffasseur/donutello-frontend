@@ -49,7 +49,7 @@
     <div class="login">
         <form name="form-login" @submit.prevent="login">
             <div class="form-group">
-                <label for="email">Email</label>
+                <label for="email">Gebruikersnaam</label>
                 <input type="text" name="email" id="email" v-model="email" />
             </div>
             <div class="form-group">
