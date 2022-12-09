@@ -15,7 +15,7 @@
             return error
         }
         // Send login request to server
-        fetch('https://donutello-backend-n95w.onrender.com/users/login/changePassword', {
+        fetch('https://donutello-backend-n95w.onrender.com/users/changePassword', {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -29,12 +29,12 @@
         })
             .then(res => res.json())
             .then(data => {
-                if (data.status === 'success') {
+                if (data === 'User is updated') {
                     console.log(data.status)
                     // Store token in local storage
                     localStorage.setItem('token', data.token)
-                    // Redirect to dashboard
-                    window.location.href = '/dashboard'
+                    // Redirect to login
+                    window.location.href = '/login'
                 } else {
                     error.value = data.message
                     console.log(error)
