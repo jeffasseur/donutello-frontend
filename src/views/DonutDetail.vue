@@ -3,14 +3,14 @@ import { onMounted, reactive, ref } from 'vue'
 import Nav from './../components/Navigation.vue'
 import Btn from './../components/Button.vue'
 
+const fetchUrl = 'https://donutello-backend-n95w.onrender.com/api/v1/donuts'
 const donutId = ref(window.location.pathname.split('/')[4])
 const donut = reactive( { 'donut': {} } )
 
 onMounted( () => {
-    const donutId = window.location.pathname.split('/')[4];
-    const url = `https://donutello-backend-n95w.onrender.com/api/v1/donuts/${donutId}`
+    const Id = window.location.pathname.split('/')[4];
     // console.log(donutId)
-    fetch( url, {
+    fetch( fetchUrl + Id, {
         method: 'GET',
         headers: {
             "Authorization": "Bearer " + localStorage.getItem('token')
@@ -29,7 +29,6 @@ onMounted( () => {
 
 const pending = async () => {
     console.log('pending')
-
 }
 
 const production = async () => {
@@ -41,8 +40,7 @@ const done = async () => {
 }
 
 const deleteDonut = async () => {
-    const url = 'https://donutello-backend-n95w.onrender.com/api/v1/donuts/'
-    await fetch( url + donutId.value, {
+    await fetch( fetchUrl + donutId.value, {
         method: 'DELETE',
         headers: {
             "Authorization": "Bearer " + localStorage.getItem('token')
