@@ -4,6 +4,7 @@ import Nav from './../components/Navigation.vue'
 import Btn from './../components/Button.vue'
 
 let fetchUrl = 'https://donutello-backend-n95w.onrender.com/api/v1/donuts/'
+let fetchLocal = 'http://localhost:3000/api/v1/donuts/'
 const donutId = ref(window.location.pathname.split('/')[3])
 
 const donut = reactive( { 'donut': {} } )
@@ -26,11 +27,11 @@ onMounted( () => {
     })
 })
 
-const pending = async () => {
+const pending = () => {
     // fetchUrl = 'http://localhost:3000/api/v1/donuts/'
     console.log('pending')
-    await fetch( fetchUrl + donutId.value, {
-        method: 'PUT',
+    fetch( fetchLocal + donutId.value, {
+        method: 'put',
         headers: {
             "Athorization": "Bearer " + localStorage.getItem('token'),
         },

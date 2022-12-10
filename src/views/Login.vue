@@ -7,7 +7,7 @@
     const password = ref('')
     let error = ref(false)
 
-    const login = async (e) => {
+    const login = (e) => {
         if (!email.value) {
             error.value = 'Please enter your email'
             return error
@@ -17,7 +17,7 @@
             return error
         }
         // Send login request to server
-        await fetch('https://donutello-backend-n95w.onrender.com/users/login', {
+        fetch('https://donutello-backend-n95w.onrender.com/users/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
