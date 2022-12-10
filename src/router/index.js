@@ -27,7 +27,7 @@ const routes = [
     component: ChangePassword
   },
   {
-    path: '/dashboard/donut/id/:id',
+    path: '/dashboard/donut/:id',
     name: 'Donut',
     component: Donut
   }

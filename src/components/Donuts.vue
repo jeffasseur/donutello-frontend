@@ -2,6 +2,7 @@
     import { reactive, onMounted } from 'vue'
     
     let donuts = reactive( {donuts: []} )
+    
 
     onMounted ( () => {
         let donutUrl = 'https://donutello-backend-n95w.onrender.com/api/v1/donuts'
@@ -13,7 +14,6 @@
         } )
         .then( res => res.json() )
         .then ( data => {
-            console.log(data)
             donuts.donuts = data.data
         })
         .catch( err => {
@@ -26,7 +26,7 @@
 <template>
     <h2>Donut bestellingen</h2>
     <div class="donuts">
-        <a class="donut card" v-for="donut in donuts.donuts" :key="donut._id" :href="('/dashboard/donut/id/' + donut._id)" >
+        <a class="donut card" v-for="donut in donuts.donuts" :key="donut._id" :href="('/dashboard/donut/' + donut._id)" >
             <div class="card__color">
                 <img class="card__color__logo" v-if="(donut.logo != null)" :src="donut.logo" alt="Logo">
             </div>

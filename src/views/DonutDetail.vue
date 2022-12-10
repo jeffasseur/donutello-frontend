@@ -3,13 +3,15 @@ import { onMounted, reactive, ref } from 'vue'
 import Nav from './../components/Navigation.vue'
 import Btn from './../components/Button.vue'
 
-const fetchUrl = 'https://donutello-backend-n95w.onrender.com/api/v1/donuts'
-const donutId = ref(window.location.pathname.split('/')[4])
+let fetchUrl = 'https://donutello-backend-n95w.onrender.com/api/v1/donuts/'
+const donutId = ref(window.location.pathname.split('/')[3])
+
 const donut = reactive( { 'donut': {} } )
+const donutStatus = ref('')
 
 onMounted( () => {
-    const Id = window.location.pathname.split('/')[4];
-    // console.log(donutId)
+    const Id = window.location.pathname.split('/')[3];
+    console.log(donutId)
     fetch( fetchUrl + Id, {
         method: 'GET',
         headers: {
@@ -18,17 +20,29 @@ onMounted( () => {
     } )
     .then( res => res.json() )
     .then( data => {
+        console.log(data)
         donut.donut = data.data
-        console.log(donut.donut)
-    })
-    .catch( err => {
-        // console.log(err)
-        window.location.href = '/login'
+        // donutStatus.value = donut.donut.status
     })
 })
 
 const pending = async () => {
+    // fetchUrl = 'http://localhost:3000/api/v1/donuts/'
     console.log('pending')
+    await fetch( fetchUrl + donutId.value, {
+        method: 'PUT',
+        headers: {
+            "Athorization": "Bearer " + localStorage.getItem('token'),
+        },
+        body: JSON.stringify({
+            'status': 'In behandeling'
+        })
+    })
+    .then( res => res.json() )
+    .then( data => {
+        console.log(data)
+        // donutStatus.value = data.data.status
+    })
 }
 
 const production = async () => {
@@ -96,7 +110,7 @@ const deleteDonut = async () => {
                 <tr>
                     <th>Logo</th>
                     <td>
-                        <a :href="donut.donut.logo">Link naar logo</a>
+                        <a :href="donut.donut.logo" download="true">Link naar logo</a>
                     </td>
                 </tr>
                 <tr>
