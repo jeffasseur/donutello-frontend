@@ -21,14 +21,13 @@ onMounted( () => {
     } )
     .then( res => res.json() )
     .then( data => {
-        console.log(data)
+        // console.log(data)
         donut.donut = data.data
         // donutStatus.value = donut.donut.status
     })
 })
 
 const pending = async () => {
-    // fetchUrl = 'http://localhost:3000/api/v1/donuts/'
     console.log('pending')
     await fetch( fetchUrl + donutId.value, {
         method: 'PUT',
@@ -91,7 +90,7 @@ const deleteDonut = async () => {
     })
     .then( res => res.json() )
     .then( data => {
-        console.log(data)
+        // console.log(data)
         window.location.href = '/dashboard'
     })
 }
@@ -103,7 +102,7 @@ const deleteDonut = async () => {
     <div class="details">
         <div class="details__top" v-if="donut.donut.order">
             <p>Aantal: {{ donut.donut.amount }}</p>
-            <p class="btn btn--lemon btn--small">Status: {{ donut.donut.status }}</p>
+            <p class="btn btn--lemon btn--small">Status: {{ ref(donut.donut.status) }}</p>
         </div>
         <div class="details__customer">
             <h3>Details klant:</h3>
