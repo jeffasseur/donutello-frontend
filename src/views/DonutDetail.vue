@@ -27,13 +27,13 @@ onMounted( () => {
     })
 })
 
-const pending = () => {
+const pending = async () => {
     // fetchUrl = 'http://localhost:3000/api/v1/donuts/'
     console.log('pending')
-    fetch( fetchLocal + donutId.value, {
-        method: 'put',
+    await fetch( fetchUrl + donutId.value, {
+        method: 'PUT',
         headers: {
-            "Athorization": "Bearer " + localStorage.getItem('token'),
+            "Authorization": "Bearer " + localStorage.getItem('token'),
         },
         body: JSON.stringify({
             'status': 'In behandeling'
@@ -48,6 +48,20 @@ const pending = () => {
 
 const production = async () => {
     console.log('production')
+    fetch( fetchUrl + donutId.value, {
+        method: 'PUT',
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem('token'),
+        },
+        body: JSON.stringify({
+            'status': 'In productie'
+        })
+    })
+    .then( res => res.json() )
+    .then( data => {
+        console.log(data)
+        // donutStatus.value = data.data.status
+    })
 }
 
 const done = async () => {
