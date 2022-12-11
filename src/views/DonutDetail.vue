@@ -66,6 +66,20 @@ const production = async () => {
 
 const done = async () => {
     console.log('done')
+    fetch( fetchUrl + donutId.value, {
+        method: 'PUT',
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem('token'),
+        },
+        body: JSON.stringify({
+            'status': 'Klaar'
+        })
+    })
+    .then( res => res.json() )
+    .then( data => {
+        console.log(data)
+        // donutStatus.value = data.data.status
+    })
 }
 
 const deleteDonut = async () => {
