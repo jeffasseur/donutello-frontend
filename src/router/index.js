@@ -27,6 +27,10 @@ const router = createRouter({
     {
       path: '/dashboard/donut/:id',
       component: Donut
+    },
+    {
+      path: '/:pathMatch(.*)',
+      redirect: '/'
     }
   ]
 });
