@@ -8,12 +8,10 @@ import Donut from '../views/DonutDetail.vue'
 const routes = [
   {
     path: '/',
-    name: 'Home',
     component: Home
   },
   {
     path: '/login',
-    name: 'Login',
     component: Login
   },
   {
@@ -23,12 +21,10 @@ const routes = [
   },
   {
     path: '/login/change-password',
-    name: 'ChangePassword',
     component: ChangePassword
   },
   {
     path: '/dashboard/donut/:id',
-    name: 'Donut',
     component: Donut
   }
 ]

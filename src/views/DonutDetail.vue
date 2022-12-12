@@ -35,7 +35,7 @@ const pending = async () => {
             "Authorization": "Bearer " + localStorage.getItem('token'),
         },
         body: JSON.stringify({
-            'status': 'In behandeling'
+            "status": "In behandeling"
         })
     })
     .then( res => res.json() )
