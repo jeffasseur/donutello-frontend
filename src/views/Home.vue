@@ -25,7 +25,7 @@ import Navigation from './../components/Navigation.vue'
             <li><span>Bestel</span> je donuts</li>
             <li><span>Deel</span> jouw <span>3D donut</span></li>
         </ol>
-        <a href="./Loading.vue" class="btn btn--strawberry">Start hier</a>
+        <a href="/loading" class="btn btn--strawberry">Start hier</a>
     </section>
     <section class="clients">
         <h2>Tevreden klanten</h2>
