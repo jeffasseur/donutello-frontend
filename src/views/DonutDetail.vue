@@ -4,7 +4,7 @@ import Nav from './../components/Navigation.vue'
 import Btn from './../components/Button.vue'
 
 let fetchUrl = 'https://donutello-backend-n95w.onrender.com/api/v1/donuts/'
-let fetchLocal = 'http://localhost:3000/api/v1/donuts/'
+//let fetchLocal = 'http://localhost:3000/api/v1/donuts/'
 const donutId = ref(window.location.pathname.split('/')[3])
 
 const donut = reactive( { 'donut': {} } )
@@ -29,7 +29,7 @@ onMounted( () => {
 
 const waiting = async () => {
     console.log('Wachten tot opstart ...')
-    await fetch( fetchLocal + donutId.value, {
+    await fetch( fetchUrl + donutId.value, {
         method: 'PUT',
         headers: {
             "Content-Type": "application/json",
@@ -50,7 +50,7 @@ const waiting = async () => {
 
 const pending = async () => {
     console.log('pending')
-    await fetch( fetchLocal + donutId.value, {
+    await fetch( fetchUrl + donutId.value, {
         method: 'PUT',
         headers: {
             "Content-Type": "application/json",
@@ -71,7 +71,7 @@ const pending = async () => {
 
 const production = async () => {
     console.log('production')
-    fetch( fetchLocal + donutId.value, {
+    fetch( fetchUrl + donutId.value, {
         method: 'PUT',
         headers: {
             "Content-Type": "application/json",
@@ -92,7 +92,7 @@ const production = async () => {
 
 const done = async () => {
     console.log('done')
-    fetch( fetchLocal + donutId.value, {
+    fetch( fetchUrl + donutId.value, {
         method: 'PUT',
         headers: {
             "Content-Type": "application/json",
@@ -112,7 +112,7 @@ const done = async () => {
 }
 
 const deleteDonut = async () => {
-    await fetch( fetchLocal + donutId.value, {
+    await fetch( fetchUrl + donutId.value, {
         method: 'DELETE',
         headers: {
             "Authorization": "Bearer " + localStorage.getItem('token')
