@@ -1,7 +1,7 @@
 <script setup>
     import { reactive, onMounted } from 'vue'
     
-    let donuts = reactive( {donuts: []} )
+    let donuts = reactive( { donuts: [] } )
     
 
     onMounted ( () => {

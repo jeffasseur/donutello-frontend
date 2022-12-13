@@ -23,17 +23,40 @@ onMounted( () => {
     .then( data => {
         // console.log(data)
         donut.donut = data.data
-        // donutStatus.value = donut.donut.status
+        donutStatus.value = data.data.status
     })
 })
 
-const pending = async () => {
-    console.log('pending')
-    await fetch( fetchUrl + donutId.value, {
+const waiting = async () => {
+    console.log('Wachten tot opstart ...')
+    await fetch( fetchLocal + donutId.value, {
         method: 'PUT',
         headers: {
+            "Content-Type": "application/json",
             "Authorization": "Bearer " + localStorage.getItem('token'),
         },
+        mode: 'cors',
+        body: JSON.stringify({
+            status: "Wachten tot opstart ..."
+        })
+    })
+    .then( res => res.json() )
+    .then( data => {
+        console.log(data.data.status)
+        donut.donut = data.data
+        donutStatus.value = data.data.status
+    })
+}
+
+const pending = async () => {
+    console.log('pending')
+    await fetch( fetchLocal + donutId.value, {
+        method: 'PUT',
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + localStorage.getItem('token'),
+        },
+        mode: 'cors',
         body: JSON.stringify({
             "status": "In behandeling"
         })
@@ -41,17 +64,20 @@ const pending = async () => {
     .then( res => res.json() )
     .then( data => {
         console.log(data)
-        // donutStatus.value = data.data.status
+        donut.donut = data.data
+        donutStatus.value = data.data.status
     })
 }
 
 const production = async () => {
     console.log('production')
-    fetch( fetchUrl + donutId.value, {
+    fetch( fetchLocal + donutId.value, {
         method: 'PUT',
         headers: {
+            "Content-Type": "application/json",
             "Authorization": "Bearer " + localStorage.getItem('token'),
         },
+        mode: 'cors',
         body: JSON.stringify({
             'status': 'In productie'
         })
@@ -59,17 +85,20 @@ const production = async () => {
     .then( res => res.json() )
     .then( data => {
         console.log(data)
-        // donutStatus.value = data.data.status
+        donut.donut = data.data
+        donutStatus.value = data.data.status
     })
 }
 
 const done = async () => {
     console.log('done')
-    fetch( fetchUrl + donutId.value, {
+    fetch( fetchLocal + donutId.value, {
         method: 'PUT',
         headers: {
+            "Content-Type": "application/json",
             "Authorization": "Bearer " + localStorage.getItem('token'),
         },
+        mode: 'cors',
         body: JSON.stringify({
             'status': 'Klaar'
         })
@@ -77,16 +106,17 @@ const done = async () => {
     .then( res => res.json() )
     .then( data => {
         console.log(data)
-        // donutStatus.value = data.data.status
+        donut.donut = data.data
+        donutStatus.value = data.data.status
     })
 }
 
 const deleteDonut = async () => {
-    await fetch( fetchUrl + donutId.value, {
+    await fetch( fetchLocal + donutId.value, {
         method: 'DELETE',
         headers: {
             "Authorization": "Bearer " + localStorage.getItem('token')
-        }
+        },
     })
     .then( res => res.json() )
     .then( data => {
@@ -102,7 +132,7 @@ const deleteDonut = async () => {
     <div class="details">
         <div class="details__top" v-if="donut.donut.order">
             <p>Aantal: {{ donut.donut.amount }}</p>
-            <p class="btn btn--lemon btn--small">Status: {{ ref(donut.donut.status) }}</p>
+            <p class="btn btn--lemon btn--small">Status: {{ donutStatus }}</p>
         </div>
         <div class="details__customer">
             <h3>Details klant:</h3>
@@ -153,13 +183,16 @@ const deleteDonut = async () => {
         <div class="details__changeStatus">
             <h3>Wijzig status:</h3>
             <div v-if="donut.donut.order" class="details__changeStatus__btns">
-                <div v-if="donut.donut.status == 'Wachten tot opstart ...'" class="details__changeStatus__btn--pending">
+                <div :v-if="donut.donut.status === null || undefined || 'created' || 'niet klaar'" class="details__changeStatus__btn--waiting">
+                    <Btn text="Wachten tot opstart ..." class="btn btn--small btn--lemon" type="submit" @click.prevent="waiting" />
+                </div>
+                <div :v-if="donut.donut.status === 'Wachten tot opstart ...' || 'wachten tot opstart ...'" class="details__changeStatus__btn--pending">
                     <Btn text="In behandeling" class="btn btn--small btn--lemon" type="submit" @click.prevent="pending" />
                 </div>
-                <div v-if="donut.donut.status == 'In behandeling'" class="details__changeStatus__btn--production">
+                <div :v-if="donut.donut.status === 'In behandeling'" class="details__changeStatus__btn--production">
                     <Btn text="In productie" class="btn btn--small btn--lemon" type="submit" @click.prevent="production" />
                 </div>
-                <div v-if="donut.donut.status == 'In productie'" class="details__changeStatus__btn--done">
+                <div :v-if="donut.donut.status === 'In productie'" class="details__changeStatus__btn--done">
                     <Btn text="Klaar" class="btn btn--small btn--lemon" type="submit" @click.prevent="done" />
                 </div>
             </div>
@@ -202,5 +235,20 @@ table th {
 }
 .details__changeStatus__btns {
     margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+    .details {
+        padding-left: 6rem;
+        padding-right: 6rem;
+    }
+    .details__changeStatus__btns {
+        flex-direction: row;
+    }
 }
 </style>
