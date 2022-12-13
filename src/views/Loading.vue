@@ -18,7 +18,7 @@ const startVideo = async () => {
   }
 }
 
-setTimeout(startVideo, 1000);
+setTimeout(startVideo, 500);
 </script>
 
 <template>
@@ -26,7 +26,7 @@ setTimeout(startVideo, 1000);
     <body>
         <!--insert lottie animation-->
 
-    <lottie-player id="loadingIcon" src="https://lottie.host/3cab8f75-ee6c-4e54-9b68-00e0bd5817bb/TpeJy1Q59f.json" background="transparent" speed="0.75" style="width: 500px; height: 300px;" ></lottie-player>    </body>
+    <lottie-player id="loadingIcon" src="https://lottie.host/3cab8f75-ee6c-4e54-9b68-00e0bd5817bb/TpeJy1Q59f.json" background="transparent" speed="1" style="width: 500px; height: 300px;" ></lottie-player>    </body>
 
 </template>
 
@@ -45,11 +45,7 @@ lottie-player{
     // no repeat
     animation-iteration-count: 1;
     background-color: $heaven;
-    animation-name: donut-loading;
 
-// no repeat
-    animation-iteration-count: 1;
-    animation-timing-function: linear;
 
 }
 
