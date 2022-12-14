@@ -25,7 +25,11 @@ import Navigation from './../components/Navigation.vue'
             <li><span>Bestel</span> je donuts</li>
             <li><span>Deel</span> jouw <span>3D donut</span></li>
         </ol>
+<<<<<<< HEAD
         <a href="https://the-donut-generator-rix11-h.vercel.com" class="btn btn--strawberry">Start hier</a>
+=======
+        <a href="/loading" class="btn btn--strawberry">Start hier</a>
+>>>>>>> 3dfb9c63b06e8379d327f9d7f8d84967eeead86f
     </section>
     <section class="clients">
         <h2>Tevreden klanten</h2>

@@ -4,6 +4,7 @@ import Login from './../views/Login.vue'
 import Dashboard from './../views/Dashboard.vue'
 import ChangePassword from './../views/ChangePassword.vue'
 import Donut from './../views/DonutDetail.vue'
+import Loading from './../views/Loading.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -19,6 +20,10 @@ const router = createRouter({
     {
       path: '/dashboard',
       component: Dashboard
+    },
+    {
+      path: '/loading',
+      component: Loading
     },
     {
       path: '/login/change-password',
