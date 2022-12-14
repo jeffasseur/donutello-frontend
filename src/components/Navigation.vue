@@ -23,8 +23,8 @@
         </div>
         <div class="nav__menu">
             <a href="/">Home</a>
+            <a href="https://the-donut-generator-rix11-h.vercel.com">Configurator</a>
             <a href="/dashboard">Dashboard</a>
-            <!-- <a href="/login">Login</a> -->
         </div>
         <a class="nav__hamburger">
             <span class="material-icons-round icon--menu" @click="openMenu">menu</span>
@@ -38,8 +38,8 @@
     <div class="nav--mobile">
         <div class="nav__menu--mobile">
             <a href="/">Home</a>
+            <a href="https://the-donut-generator-rix11-h.vercel.com">Configurator</a>
             <a href="/dashboard">Dashboard</a>
-            <!-- <a href="/login">Login</a> -->
         </div>
     </div>
 </template>
