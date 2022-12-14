@@ -13,7 +13,7 @@ import Navigation from './../components/Navigation.vue'
             of organisatie in onze nieuwe 3D
             configurator
         </p>
-        <a href="https://the-donut-generator-rix11-h.vercel.com" class="header__btn btn btn--lemon">Maak je eigen donut</a>
+        <a href="https://the-donut-generator-rix11-h.vercel.app" class="header__btn btn btn--lemon">Maak je eigen donut</a>
     </header>
     <section class="stappenplan">
         <h2>Maak je donut in <span>6 stappen</span></h2>
@@ -25,7 +25,7 @@ import Navigation from './../components/Navigation.vue'
             <li><span>Bestel</span> je donuts</li>
             <li><span>Deel</span> jouw <span>3D donut</span></li>
         </ol>
-        <a href="https://the-donut-generator-rix11-h.vercel.com" class="btn btn--strawberry">Start hier</a>
+        <a href="https://the-donut-generator-rix11-h.vercel.app" class="btn btn--strawberry">Start hier</a>
     </section>
     <section class="clients">
         <h2>Tevreden klanten</h2>
