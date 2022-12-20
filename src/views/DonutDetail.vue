@@ -167,7 +167,9 @@ const deleteDonut = async () => {
         <tr>
           <th>Logo</th>
           <td>
-            <a :href="donuts.donut.donut.logo" download="true">Link naar logo</a>
+            <a :href="donuts.donut.donut.logo" target="_blank" download="true"
+              >Link naar logo</a
+            >
           </td>
         </tr>
         <tr>
