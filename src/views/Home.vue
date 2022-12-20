@@ -11,9 +11,7 @@ import Navigation from "./../components/Navigation.vue";
       Maak hier jouw donuts in de huisstijl van jouw bedrijf of organisatie in onze nieuwe
       3D configurator
     </p>
-    <a
-      href="https://the-donut-generator-rix11-h.vercel.app"
-      class="header__btn btn btn--lemon"
+    <a href="https://donutello-three.vercel.app/" class="header__btn btn btn--lemon"
       >Maak je eigen donut</a
     >
   </header>
@@ -27,7 +25,7 @@ import Navigation from "./../components/Navigation.vue";
       <li><span>Bestel</span> je donuts</li>
       <li><span>Deel</span> jouw <span>3D donut</span></li>
     </ol>
-    <a href="https://the-donut-generator-rix11-h.vercel.app" class="btn btn--strawberry"
+    <a href="https://donutello-three.vercel.app/" class="btn btn--strawberry"
       >Start hier</a
     >
   </section>
