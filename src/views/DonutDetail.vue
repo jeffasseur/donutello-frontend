@@ -128,7 +128,7 @@ const deleteDonut = async () => {
 
 <template>
   <Nav />
-  <h2 v-if="donuts.donut === undefined" class="donut__header">
+  <h2 v-if="Object.keys(donuts.donut).length > 1" class="donut__header">
     {{ donuts.donut.client.name }}
   </h2>
   <div v-if="Object.keys(donuts.donut).length > 1" class="details">
