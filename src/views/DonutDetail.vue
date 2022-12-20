@@ -174,7 +174,7 @@ const deleteDonut = async () => {
         </tr>
         <tr>
           <th>Opmerkingen</th>
-          <td>{{ donuts.donut.description }}</td>
+          <td>{{ donuts.donut.order.description }}</td>
         </tr>
       </table>
     </div>
